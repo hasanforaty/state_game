@@ -43,9 +43,6 @@ while game_on:
 
 full_list = states.state.to_list()
 
-un_Answer = []
-for state in full_list:
-    if state.lower() not in guss_set:
-        un_Answer.append(state)
+un_Answer = [state for state in full_list if state.lower() not in guss_set]
 un_Answer_file = pandas.Series(un_Answer)
 un_Answer_file.to_csv('un_Answer.csv', index=False)
